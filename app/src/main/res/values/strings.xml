@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AboutUsActivity</string>
+    <string name="show_about_us_activity">Show About Us Activity</string>
 </resources>
