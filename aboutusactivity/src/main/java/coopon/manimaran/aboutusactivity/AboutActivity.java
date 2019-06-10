@@ -1,7 +1,6 @@
 package coopon.manimaran.aboutusactivity;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
@@ -16,7 +15,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class AboutActivity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class AboutActivity extends AppCompatActivity {
 
     private ImageView imgAppLogo, imgPoweredByLogo, imgInitiatedByLogo;
     private Button btnShare, btnLicense, btnRateUs;
@@ -43,6 +44,9 @@ public class AboutActivity extends Activity {
         }
         setContentView(R.layout.activity_about_us);
         setupActionBar();
+
+        if(builder.activityTitle != null)
+            setTitle(builder.activityTitle);
 
         initViews();
 
@@ -136,14 +140,31 @@ public class AboutActivity extends Activity {
 
         if (builder.showThirdPartyLibrary) {
             makeVisible(layoutThirdPartyLibrary);
-            // Todo : Start activity
+            layoutThirdPartyLibrary.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(getApplicationContext(), ThirdPartyLibraryActivity.class);
+                    i.putExtra("json_res_id", builder.jsonResOfThirdPartyLib);
+                    startActivity(i);
+                }
+            });
+        }
+
+        if (builder.showCredits) {
+            makeVisible(layoutCredits);
+            layoutCredits.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    /*Intent i = new Intent(getApplicationContext(), ThirdPartyLibraryActivity.class);
+                    i.putExtra("json_res_id", builder.jsonResOfThirdPartyLib);
+                    startActivity(i);*/
+                }
+            });
         }
 
         if (builder.showHelpDevelopment)
             makeVisible(layoutHelpDevelopment);
 
-        if (builder.showCredits)
-            makeVisible(layoutCredits);
 
         if (builder.showContactUs) {
             makeVisible(layoutContactUs);
@@ -155,7 +176,7 @@ public class AboutActivity extends Activity {
                     i.setType("message/rfc822");
                     i.putExtra(Intent.EXTRA_EMAIL, new String[]{builder.contactMail});
                     try {
-                        startActivity(Intent.createChooser(i, builder.textForContactMail));
+                        startActivity(Intent.createChooser(i, "Contact via mail..."));
                     } catch (ActivityNotFoundException ex) {
                         Toast.makeText(AboutActivity.this, "No email client", Toast.LENGTH_SHORT).show();
                     }
@@ -229,10 +250,6 @@ public class AboutActivity extends Activity {
             // Show the Up button in the action bar.
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
-    }
-
-    public void showThirdPartyLicense() {
-
     }
 
     @Override

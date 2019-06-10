@@ -18,6 +18,8 @@ public class AboutActivityBuilder {
         transient Activity acc;
         transient Fragment frag;
 
+        String activityTitle = "About us Activity";
+
         /* App Info Section */
         boolean showAppLogo = false, showAppName = false, showAppAbout = false, showAppVersion = false;
         int appLogo;
@@ -39,6 +41,7 @@ public class AboutActivityBuilder {
         /* Others */
         boolean showSeeSourceCode = false, showThirdPartyLibrary = false, showHelpDevelopment = false;
         boolean showCredits = false, showContactUs = false;
+        Integer jsonResOfCredits, jsonResOfThirdPartyLib;
         String linkSourceCode, textForContactMail;
         String contactMail;
 
@@ -65,6 +68,11 @@ public class AboutActivityBuilder {
          */
         public Builder setAppTheme(int idTheme) {
             this.idTheme = idTheme;
+            return this;
+        }
+
+        public Builder setTitle(String title) {
+            this.activityTitle = title;
             return this;
         }
 
@@ -145,8 +153,9 @@ public class AboutActivityBuilder {
             return this;
         }
 
-        public Builder setThirdPartyLibrary(String linkSourceCode) {
+        Builder setThirdPartyLibrary(int jsonResOfThirdPartyLib) {
             this.showThirdPartyLibrary = true;
+            this.jsonResOfThirdPartyLib = jsonResOfThirdPartyLib;
             return this;
         }
 

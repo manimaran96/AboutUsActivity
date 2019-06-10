@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    tools:context=".AboutActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -74,20 +76,26 @@
 
                     <Button
                         android:id="@+id/btn_licence"
-                        android:layout_row="0"
                         style="@style/CustomButtonStyle"
+                        android:layout_row="0"
+                        android:paddingStart="25dp"
+                        android:paddingEnd="25dp"
                         android:text="@string/licence" />
 
                     <Button
                         android:id="@+id/btn_share"
                         style="@style/CustomButtonStyle"
                         android:layout_row="0"
+                        android:paddingStart="25dp"
+                        android:paddingEnd="25dp"
                         android:text="@string/share" />
 
                     <Button
                         android:id="@+id/btn_rate_us"
                         style="@style/CustomButtonStyle"
                         android:layout_row="0"
+                        android:paddingStart="25dp"
+                        android:paddingEnd="25dp"
                         android:text="@string/rate_us" />
                 </GridLayout>
 
@@ -110,9 +118,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/view_line_1"
-                        android:text="Powered By"
                         android:layout_marginStart="5dp"
                         android:layout_marginBottom="5dp"
+                        android:text="Powered By"
                         android:textSize="@dimen/text_semi_normal" />
 
 
@@ -130,8 +138,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txt_powered_by_title"
                         android:layout_marginStart="10dp"
-                        android:orientation="vertical"
-                        android:layout_toEndOf="@+id/img_powered_by">
+                        android:layout_toEndOf="@+id/img_powered_by"
+                        android:orientation="vertical">
 
 
                         <TextView
@@ -157,12 +165,12 @@
                             android:id="@+id/txt_powered_by_link"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="2"
-                            android:text="@string/link"
                             android:layout_marginTop="3dp"
                             android:autoLink="web"
+                            android:ellipsize="end"
                             android:linksClickable="true"
+                            android:maxLines="2"
+                            android:text="@string/link"
                             android:textSize="@dimen/text_small" />
 
 
@@ -188,9 +196,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/view_line_2"
-                        android:text="@string/initiated_by"
-                        android:layout_marginBottom="5dp"
                         android:layout_marginStart="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:text="@string/initiated_by"
                         android:textSize="@dimen/text_semi_normal" />
 
 
@@ -208,8 +216,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txt_initiated_by_title"
                         android:layout_marginStart="10dp"
-                        android:orientation="vertical"
-                        android:layout_toEndOf="@+id/img_initiated_by">
+                        android:layout_toEndOf="@+id/img_initiated_by"
+                        android:orientation="vertical">
 
 
                         <TextView
@@ -226,23 +234,23 @@
                             android:id="@+id/txt_initiated_by_about"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:autoLink="web"
                             android:ellipsize="end"
+                            android:linksClickable="true"
                             android:maxLines="7"
                             android:text="@string/about_initiator"
-                            android:autoLink="web"
-                            android:linksClickable="true"
                             android:textSize="@dimen/text_small" />
 
                         <TextView
                             android:id="@+id/txt_initiated_by_link"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="2"
-                            android:text="@string/link"
                             android:layout_marginTop="3dp"
                             android:autoLink="web"
+                            android:ellipsize="end"
                             android:linksClickable="true"
+                            android:maxLines="2"
+                            android:text="@string/link"
                             android:textSize="@dimen/text_small" />
 
 
@@ -275,7 +283,7 @@
                             android:layout_height="@dimen/ic_height"
                             android:layout_marginStart="15dp"
                             android:layout_marginEnd="30dp"
-                            android:src="@drawable/ic_gitlab" />
+                            android:src="@drawable/ic_git" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -302,7 +310,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Third Party Library" />
+                            android:text="Third Party Libraries" />
 
                     </LinearLayout>
 

@@ -5,7 +5,10 @@
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true">
-        <activity android:name=".AboutActivity"/>
+        <activity
+            android:name=".AboutActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ThirdPartyLibraryActivity" />
     </application>
 
 </manifest>
