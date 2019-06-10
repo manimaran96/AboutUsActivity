@@ -155,9 +155,9 @@ public class AboutActivity extends AppCompatActivity {
             layoutCredits.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    /*Intent i = new Intent(getApplicationContext(), ThirdPartyLibraryActivity.class);
-                    i.putExtra("json_res_id", builder.jsonResOfThirdPartyLib);
-                    startActivity(i);*/
+                    Intent i = new Intent(getApplicationContext(), CreditsActivity.class);
+                    i.putExtra("json_res_id", builder.jsonResOfCredits);
+                    startActivity(i);
                 }
             });
         }

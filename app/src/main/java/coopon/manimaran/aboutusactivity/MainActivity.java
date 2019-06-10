@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
                 new AboutActivityBuilder.Builder(MainActivity.this)
                         .setAppTheme(R.style.AppTheme)
+                        .setTitle("About Us")
                         .setAppLogo(R.drawable.ic_app_logo)
                         .setAppName("App Name")
                         .setAppAbout("About App Info. About Activity for simple and easy way to show about us.")
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                         .setInitiatedBy(R.drawable.ic_initiator, "Initiated By", "Initiator", "About Initiator", "http://initiator.com/")
                         .setSeeSourceCode("https://gitlab.com/manimaran/aboutusactivity")
                         .setThirdPartyLibrary(R.raw.third_party_library)
-                        .setCredits("")
+                        .setCredits(R.raw.credits)
                         .setHelpDevelopment("")
                         .setContactUs("manimaran@cooponscitech.in")
                         .showAboutActivity();

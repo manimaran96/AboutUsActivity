@@ -159,8 +159,9 @@ public class AboutActivityBuilder {
             return this;
         }
 
-        public Builder setCredits(String linkSourceCode) {
+        public Builder setCredits(int jsonResOfCredits) {
             this.showCredits = true;
+            this.jsonResOfCredits = jsonResOfCredits;
             return this;
         }
 

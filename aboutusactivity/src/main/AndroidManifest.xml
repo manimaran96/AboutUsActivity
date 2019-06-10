@@ -9,6 +9,7 @@
             android:name=".AboutActivity"
             android:theme="@style/AppTheme" />
         <activity android:name=".ThirdPartyLibraryActivity" />
+        <activity android:name=".CreditsActivity" />
     </application>
 
 </manifest>
