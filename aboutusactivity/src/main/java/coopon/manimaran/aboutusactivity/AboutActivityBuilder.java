@@ -50,9 +50,9 @@ public class AboutActivityBuilder {
         /* Theme */
         int idTheme = 0;
 
-        public Builder(@NonNull Context context)
+        public Builder(@NonNull Context thisContext)
         {
-            activity = (Activity) context;
+            activity = (Activity) thisContext;
         }
 
 
@@ -95,7 +95,7 @@ public class AboutActivityBuilder {
          * @param appName - app name
          * @return
          */
-        Builder setAppName(String appName) {
+        public Builder setAppName(String appName) {
             this.showAppName = true;
             this.appName = appName;
             return this;
@@ -108,7 +108,7 @@ public class AboutActivityBuilder {
          * @param appAbout - about application
          * @return
          */
-        Builder setAppAbout(String appAbout) {
+        public Builder setAppAbout(String appAbout) {
             this.showAppAbout = true;
             this.appAbout = appAbout;
             return this;
@@ -120,7 +120,7 @@ public class AboutActivityBuilder {
          * @param appVersion - app version
          * @return
          */
-        Builder setAppVersion(String appVersion) {
+        public Builder setAppVersion(String appVersion) {
             this.showAppVersion = true;
             this.appVersion = appVersion;
             return this;
@@ -132,7 +132,7 @@ public class AboutActivityBuilder {
          * @param license - license name
          * @return
          */
-        Builder setLicense(String license, String licenseUrl) {
+        public Builder setLicense(String license, String licenseUrl) {
             this.showLicenseBtn = true;
             this.hintLicense = license;
             this.licenseUrl = licenseUrl;
@@ -147,7 +147,7 @@ public class AboutActivityBuilder {
          * @param shareIntentTitle - Intent Chosen title
          * @return
          */
-        Builder setShare(String shareMsgText, String shareIntentTitle) {
+        public Builder setShare(String shareMsgText, String shareIntentTitle) {
             this.showShareBtn = true;
             this.shareMsgText = shareMsgText;
             this.shareIntentTitle = shareIntentTitle;
@@ -160,7 +160,7 @@ public class AboutActivityBuilder {
          * @param appPlayStoreLink - app play store link
          * @return
          */
-        Builder setRateUs(String appPlayStoreLink) {
+        public Builder setRateUs(String appPlayStoreLink) {
             this.showRateUsBtn = true;
             this.appPlayStoreLink = appPlayStoreLink;
             return this;
@@ -177,7 +177,7 @@ public class AboutActivityBuilder {
          * @param poweredByLink - Web site link
          * @return
          */
-        Builder setPoweredBy(int poweredByIcon, String poweredByTitle, String poweredByName, String poweredByAbout, String poweredByLink) {
+        public Builder setPoweredBy(int poweredByIcon, String poweredByTitle, String poweredByName, String poweredByAbout, String poweredByLink) {
             this.showPoweredBy = true;
             this.poweredByIcon = poweredByIcon;
             this.poweredByTitle = poweredByTitle;
@@ -197,7 +197,7 @@ public class AboutActivityBuilder {
          * @param initiatedByLink - link
          * @return
          */
-        Builder setInitiatedBy(int initiatedByIcon, String initiatedByTitle, String initiatedByName, String initiatedByAbout, String initiatedByLink) {
+        public Builder setInitiatedBy(int initiatedByIcon, String initiatedByTitle, String initiatedByName, String initiatedByAbout, String initiatedByLink) {
             this.showInitiatedBy = true;
             this.initiatedByIcon = initiatedByIcon;
             this.initiatedByTitle = initiatedByTitle;
@@ -212,7 +212,7 @@ public class AboutActivityBuilder {
          * @param linkSourceCode - repo link
          * @return
          */
-        Builder setSeeSourceCode(String linkSourceCode) {
+        public Builder setSeeSourceCode(String linkSourceCode) {
             this.showSeeSourceCode = true;
             this.linkSourceCode = linkSourceCode;
             return this;
@@ -224,7 +224,7 @@ public class AboutActivityBuilder {
          * @param jsonResOfThirdPartyLib - json file for third party library
          * @return
          */
-        Builder setThirdPartyLibrary(int jsonResOfThirdPartyLib) {
+        public Builder setThirdPartyLibrary(int jsonResOfThirdPartyLib) {
             this.showThirdPartyLibrary = true;
             this.jsonResOfThirdPartyLib = jsonResOfThirdPartyLib;
             return this;
@@ -235,7 +235,7 @@ public class AboutActivityBuilder {
          * @param jsonResOfCredits - Json file for credits
          * @return
          */
-        Builder setCredits(int jsonResOfCredits) {
+        public Builder setCredits(int jsonResOfCredits) {
             this.showCredits = true;
             this.jsonResOfCredits = jsonResOfCredits;
             return this;
@@ -246,7 +246,7 @@ public class AboutActivityBuilder {
          * @param linkSourceCode
          * @return
          */
-        Builder setHelpDevelopment(String linkSourceCode) {
+        public Builder setHelpDevelopment(String linkSourceCode) {
             this.showHelpDevelopment = true;
             return this;
         }
@@ -257,7 +257,7 @@ public class AboutActivityBuilder {
          * @param contactMail - mail id
          * @return
          */
-        Builder setContactUs(String contactMail) {
+        public Builder setContactUs(String contactMail) {
             this.showContactUs = true;
             this.contactMail = contactMail;
             return this;
