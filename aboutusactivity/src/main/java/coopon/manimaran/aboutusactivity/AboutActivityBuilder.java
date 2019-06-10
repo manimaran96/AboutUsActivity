@@ -23,10 +23,12 @@ public class AboutActivityBuilder {
         /* App Info Section */
         boolean showAppLogo = false, showAppName = false, showAppAbout = false, showAppVersion = false;
         int appLogo;
-        String appName, appAbout, appVersion, appPackageName;
+        String appName;
+        String appAbout;
+        String appVersion;
 
         boolean showLicenseBtn = false, showShareBtn = false, showRateUsBtn = false;
-        String hintLicense, hintShare, hintRateUs, appPlayStoreLink, shareMsgText, shareIntentTitle;
+        String hintLicense, hintShare, hintRateUs, licenseUrl, appPlayStoreLink, shareMsgText, shareIntentTitle;
 
         /* Powered By Section */
         boolean showPoweredBy = false;
@@ -42,16 +44,13 @@ public class AboutActivityBuilder {
         boolean showSeeSourceCode = false, showThirdPartyLibrary = false, showHelpDevelopment = false;
         boolean showCredits = false, showContactUs = false;
         Integer jsonResOfCredits, jsonResOfThirdPartyLib;
-        String linkSourceCode, textForContactMail;
+        String linkSourceCode;
         String contactMail;
 
         /* Theme */
         int idTheme = 0;
 
-
-        private Intent intent;
-
-        public Builder(@NonNull Activity act) {
+        Builder(@NonNull Activity act) {
             this.acc = act;
         }
 
@@ -63,15 +62,20 @@ public class AboutActivityBuilder {
         /**
          * Set the theme
          *
-         * @param idTheme
+         * @param idTheme - App Theme
          * @return this builder
          */
-        public Builder setAppTheme(int idTheme) {
+        Builder setAppTheme(int idTheme) {
             this.idTheme = idTheme;
             return this;
         }
 
-        public Builder setTitle(String title) {
+        /**
+         * Set Title
+         * @param title - title app activity
+         * @return
+         */
+        Builder setTitle(String title) {
             this.activityTitle = title;
             return this;
         }
@@ -79,55 +83,104 @@ public class AboutActivityBuilder {
         /**
          * Set ImageView in general card
          *
-         * @param appLogo
+         * @param appLogo -  logo image
          * @return this builder
          */
-        public Builder setAppLogo(int appLogo) {
+        Builder setAppLogo(int appLogo) {
             this.showAppLogo = true;
             this.appLogo = appLogo;
             return this;
         }
 
-        public Builder setAppName(String appName) {
+        /**
+         *  Set App Name
+         *
+         * @param appName - app name
+         * @return
+         */
+        Builder setAppName(String appName) {
             this.showAppName = true;
             this.appName = appName;
             return this;
         }
 
-        public Builder setAppAbout(String appAbout) {
+
+        /**
+         *  Set App About Info
+         *
+         * @param appAbout - about application
+         * @return
+         */
+        Builder setAppAbout(String appAbout) {
             this.showAppAbout = true;
             this.appAbout = appAbout;
             return this;
         }
 
-        public Builder setAppVersion(String appVersion) {
+        /**
+         *  Set Application Version
+         *
+         * @param appVersion - app version
+         * @return
+         */
+        Builder setAppVersion(String appVersion) {
             this.showAppVersion = true;
             this.appVersion = appVersion;
             return this;
         }
 
-        public Builder setLicense(String license) {
+        /**
+         *  Set App License Details
+         *
+         * @param license - license name
+         * @return
+         */
+        Builder setLicense(String license, String licenseUrl) {
             this.showLicenseBtn = true;
             this.hintLicense = license;
+            this.licenseUrl = licenseUrl;
             return this;
         }
 
 
-        public Builder setShare(String shareMsgText, String shareIntentTitle) {
+        /**
+         *  Set Share details
+         *
+         * @param shareMsgText - Message content
+         * @param shareIntentTitle - Intent Chosen title
+         * @return
+         */
+        Builder setShare(String shareMsgText, String shareIntentTitle) {
             this.showShareBtn = true;
             this.shareMsgText = shareMsgText;
             this.shareIntentTitle = shareIntentTitle;
             return this;
         }
 
-        public Builder setRateUs(String appPlayStoreLink) {
+        /**
+         *  Rate the application in play store
+         *
+         * @param appPlayStoreLink - app play store link
+         * @return
+         */
+        Builder setRateUs(String appPlayStoreLink) {
             this.showRateUsBtn = true;
             this.appPlayStoreLink = appPlayStoreLink;
             return this;
         }
 
 
-        public Builder setPoweredBy(int poweredByIcon, String poweredByTitle, String poweredByName, String poweredByAbout, String poweredByLink) {
+        /**
+         *  Application Developer details. I.e Application Powered by
+         *
+         * @param poweredByIcon - Icon
+         * @param poweredByTitle - Powered by or Developed By
+         * @param poweredByName - Name
+         * @param poweredByAbout - ABout
+         * @param poweredByLink - Web site link
+         * @return
+         */
+        Builder setPoweredBy(int poweredByIcon, String poweredByTitle, String poweredByName, String poweredByAbout, String poweredByLink) {
             this.showPoweredBy = true;
             this.poweredByIcon = poweredByIcon;
             this.poweredByTitle = poweredByTitle;
@@ -137,7 +190,17 @@ public class AboutActivityBuilder {
             return this;
         }
 
-        public Builder setInitiatedBy(int initiatedByIcon, String initiatedByTitle, String initiatedByName, String initiatedByAbout, String initiatedByLink) {
+        /**
+         *  Application Initiator name. Like Application Client
+         *
+         * @param initiatedByIcon - icon
+         * @param initiatedByTitle - title
+         * @param initiatedByName - name
+         * @param initiatedByAbout - about
+         * @param initiatedByLink - link
+         * @return
+         */
+        Builder setInitiatedBy(int initiatedByIcon, String initiatedByTitle, String initiatedByName, String initiatedByAbout, String initiatedByLink) {
             this.showInitiatedBy = true;
             this.initiatedByIcon = initiatedByIcon;
             this.initiatedByTitle = initiatedByTitle;
@@ -147,162 +210,66 @@ public class AboutActivityBuilder {
             return this;
         }
 
-        public Builder setSeeSourceCode(String linkSourceCode) {
+        /**
+         *  See Source code
+         * @param linkSourceCode - repo link
+         * @return
+         */
+        Builder setSeeSourceCode(String linkSourceCode) {
             this.showSeeSourceCode = true;
             this.linkSourceCode = linkSourceCode;
             return this;
         }
 
+        /**
+         *  Third party library details used in app.
+         *
+         * @param jsonResOfThirdPartyLib - json file for third party library
+         * @return
+         */
         Builder setThirdPartyLibrary(int jsonResOfThirdPartyLib) {
             this.showThirdPartyLibrary = true;
             this.jsonResOfThirdPartyLib = jsonResOfThirdPartyLib;
             return this;
         }
 
-        public Builder setCredits(int jsonResOfCredits) {
+        /**
+         *  Credits details - Credits Info of art, images, icons
+         * @param jsonResOfCredits - Json file for credits
+         * @return
+         */
+        Builder setCredits(int jsonResOfCredits) {
             this.showCredits = true;
             this.jsonResOfCredits = jsonResOfCredits;
             return this;
         }
 
-        public Builder setHelpDevelopment(String linkSourceCode) {
+        /**
+         *  Help to App Development
+         * @param linkSourceCode
+         * @return
+         */
+        Builder setHelpDevelopment(String linkSourceCode) {
             this.showHelpDevelopment = true;
             return this;
         }
 
-        public Builder setContactUs(String contactMail) {
+        /**
+         *  Contact Details
+         *
+         * @param contactMail - mail id
+         * @return
+         */
+        Builder setContactUs(String contactMail) {
             this.showContactUs = true;
             this.contactMail = contactMail;
             return this;
         }
 
-
-
-
-
-
-        /* *//**
-         *
-         * @param showLicense true = show card, otherwise the card will be invisible
-         * @param notices list of notices where each element is Notice object (es. new Notice("<lib_name>", "<github_link>", "<copyright>", new ApacheSoftwareLicense20())))
-         * @param textTitleDialogLicense text like "Open Source License"
-         * @param textCloseButton text like "Close"
-         * @return this builder
-         *//*
-        public Builder showLicense(boolean showLicense, NoticesParcelable notices, String textOpenSourceLicense, String textTitleDialogLicense, String textCloseButton)
-        {
-            this.showLicense = showLicense;
-            this.notices = notices;
-            this.textOpenSourceLicense = textOpenSourceLicense;
-            this.textTitleDialogLicense = textTitleDialogLicense;
-            this.textCloseButton = textCloseButton;
-            return this;
-        }
-
-        *//**
-         * Show a card with fab
-         * @param showContactUsOnEmail true = show card, otherwise the card will be invisible
-         * @param emailAddress email address like "example@gmail.com"
-         * @param textContactUsOnEmail text like "For any information contact us"
-         * @param textSendAMail text that you see when the choose (to pic the email application) (es. "Send a mail..")
-         * @return this builder
-         *//*
-        public Builder showContactUsOnEmail(boolean showContactUsOnEmail, String emailAddress, String textContactUsOnEmail, String textSendAMail)
-        {
-            this.showContactUsOnEmail = showContactUsOnEmail;
-            this.emailAddress = emailAddress;
-            this.textContactUsOnEmail = textContactUsOnEmail;
-            this.textSendAMail = textSendAMail;
-            return this;
-        }
-        *//**
-         *
-         * @param showRecommendedApps true = show card, otherwise the card will be invisible
-         * @param marketDevPageLink link to the developer's page
-         * @param textLabelRecommendedApps text like "Recommended by Someone"
-         * @return this builder
-         *//*
-        public Builder showRecommendedApps(boolean showRecommendedApps, String marketDevPageLink, String textLabelRecommendedApps)
-        {
-            this.showRecommendedApps = showRecommendedApps;
-            this.marketDevPageLink = marketDevPageLink;
-            this.textLabelRecommendedApps = textLabelRecommendedApps;
-            return this;
-        }
-
-        *//**
-         * Show a card with version of the app
-         * @param showAppVersion true = show card, otherwise the card will be invisible
-         * @param textLabel text to show (eg. "Version:")
-         * @param version version of the app (eg. "1.0")
-         * @return this builder
-         *//*
-        public Builder showAppVersion(boolean showAppVersion, String textLabel, String version)
-        {
-            this.showAppVersion = showAppVersion;
-            this.textLabel = textLabel;
-            this.version = version;
-            return this;
-        }
-
-        *//**
-         * Show a card with 3 button (Facebook, Google and Telegram)
-         * @param showFollowOnSocial true = show card, otherwise the card will be invisible
-         * @param textFollowUsOn text like "Follow us on"
-         * @param facebookPath facebook link (if it is null than the Facebook button will not be showed)
-         * @param googlePlusPath google+ link (if it is null than the GooglePlus button will not be showed)
-         * @param telegramPath telegram link (if it is null than the Telegram button will not be showed)
-         * @return this builder
-         *//*
-        public Builder showFollowOnSocial(boolean showFollowOnSocial, String textFollowUsOn, String facebookPath, String googlePlusPath, String telegramPath)
-        {
-            this.showFollowOnSocial = showFollowOnSocial;
-            this.textFollowUsOn = textFollowUsOn;
-            this.facebookPath = facebookPath;
-            this.googlePlusPath = googlePlusPath;
-            this.telegramPath = telegramPath;
-            return this;
-        }
-
-        *//**
-         * Show a card with starts to rate the app (on click will opened the app in the playstore)
-         * @param showRateApp true = show card, otherwise the card will be invisible
-         * @param packageName package name needed to open the app in the playstore (eg. just call the function "getPackageName()")
-         * @param textLabelRateThisApp text like "Rate this app"
-         * @return this builder
-         *//*
-        public Builder showRateApp(boolean showRateApp, String packageName, String textLabelRateThisApp)
-        {
-            this.showRateApp = showRateApp;
-            this.packageName = packageName;
-            this.textLabelRateThisApp = textLabelRateThisApp;
-            return this;
-        }
-
-        */
-
         /**
-         * Show a card with the application logo and so on
-         *
-         * @param showGeneral           true = show card, otherwise the card will be invisible
-         * @param textApplicationName   the application name
-         * @param packageName           package name needed to open the app in the playstore (eg. just call the function "getPackageName()")
-         * @param textDeveloper         text like "Developed by Developer"
-         * @param textThanks            text like "Thank you so much for downloading our application"
-         * @param textTitleChooserShare text like "Share with"
-         * @return this builder
-         *//*
-        public Builder showGeneral(boolean showGeneral, String textApplicationName, String packageName, String textDeveloper, String textThanks, String textTitleChooserShare)
-        {
-            this.showGeneral = showGeneral;
-            this.textApplicationName = textApplicationName;
-            this.packageName = packageName;
-            this.textDeveloper = textDeveloper;
-            this.textThanks = textThanks;
-            this.textTitleChooserShare = textTitleChooserShare;
-            return this;
-        }*/
-        public void showAboutActivity() {
+         * Open Activity
+         */
+        void showAboutActivity() {
             if (acc == null) {
                 return;
             }

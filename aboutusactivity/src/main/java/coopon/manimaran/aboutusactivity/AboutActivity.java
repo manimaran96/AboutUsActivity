@@ -38,49 +38,69 @@ public class AboutActivity extends AppCompatActivity {
         if (intent == null) {
             return;
         }
+
+        // Builder
         builder = (AboutActivityBuilder.Builder) intent.getSerializableExtra("builder");
+
+        // Set Theme
         if (builder.idTheme != 0) {
             setTheme(builder.idTheme);
         }
+
         setContentView(R.layout.activity_about_us);
+
+        // Action Bar
         setupActionBar();
 
+        // Set Title
         if(builder.activityTitle != null)
             setTitle(builder.activityTitle);
 
+        // Views Init
         initViews();
 
-        // make invisible all cards
+        // Make invisible all cards
         initVisibility();
 
+        // App Logo
         if (builder.showAppLogo) {
             imgAppLogo.setVisibility(View.VISIBLE);
             imgAppLogo.setImageResource(builder.appLogo);
         }
 
+        // App Name
         if (builder.showAppName) {
             txtAppName.setVisibility(builder.appName != null ? View.VISIBLE : View.GONE);
             txtAppName.setText(builder.appName != null ? builder.appName : "");
         }
 
+        // App About
         if (builder.showAppAbout) {
             txtAppAbut.setVisibility(builder.appAbout != null ? View.VISIBLE : View.GONE);
             txtAppAbut.setText(builder.appAbout != null ? builder.appAbout : "");
         }
 
+        // App Version
         if (builder.showAppVersion) {
             txtAppVersion.setVisibility(builder.appVersion != null ? View.VISIBLE : View.GONE);
             txtAppVersion.setText(builder.appVersion != null ? builder.appVersion : "");
         }
 
+        // App License - Button
         if (builder.showLicenseBtn) {
-            //btnLicense.setVisibility(builder.hintLicense != null ? View.VISIBLE : View.GONE);
             if (builder.hintLicense != null)
                 btnLicense.setText(builder.hintLicense);
+
+            btnLicense.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(builder.licenseUrl)));
+                }
+            });
         }
 
+        // App Share - Button
         if (builder.showShareBtn) {
-            //btnShare.setVisibility(builder.hintShare != null ? View.VISIBLE : View.GONE);
             if (builder.hintShare != null)
                 btnShare.setText(builder.hintShare);
 
@@ -95,8 +115,8 @@ public class AboutActivity extends AppCompatActivity {
             });
         }
 
+        // App Rate Us - Button
         if (builder.showRateUsBtn) {
-            //btnRateUs.setVisibility(builder.hintRateUs != null ? View.VISIBLE : View.GONE);
             if (builder.hintRateUs != null)
                 btnRateUs.setText(builder.hintRateUs);
 
@@ -108,6 +128,7 @@ public class AboutActivity extends AppCompatActivity {
             });
         }
 
+        // App Power By Info
         if (builder.showPoweredBy) {
             layoutPoweredBy.setVisibility(View.VISIBLE);
             imgPoweredByLogo.setImageResource(builder.poweredByIcon);
@@ -117,6 +138,7 @@ public class AboutActivity extends AppCompatActivity {
             txtPoweredByLink.setText(builder.poweredByLink != null ? builder.poweredByLink : "");
         }
 
+        // App Initiator By
         if (builder.showInitiatedBy) {
             layoutInitiatedBy.setVisibility(View.VISIBLE);
             imgInitiatedByLogo.setImageResource(builder.initiatedByIcon);
@@ -126,6 +148,7 @@ public class AboutActivity extends AppCompatActivity {
             txtInitiatedByLink.setText(builder.initiatedByLink != null ? builder.initiatedByLink : "");
         }
 
+        // App See Source Code - Button
         if (builder.showSeeSourceCode) {
             if (builder.linkSourceCode != null && builder.linkSourceCode.length() > 0) {
                 makeVisible(layoutSeeSourceCode);
@@ -138,6 +161,7 @@ public class AboutActivity extends AppCompatActivity {
             }
         }
 
+        // App Third Party Library - Button
         if (builder.showThirdPartyLibrary) {
             makeVisible(layoutThirdPartyLibrary);
             layoutThirdPartyLibrary.setOnClickListener(new View.OnClickListener() {
@@ -150,6 +174,7 @@ public class AboutActivity extends AppCompatActivity {
             });
         }
 
+        // App Credits - Button
         if (builder.showCredits) {
             makeVisible(layoutCredits);
             layoutCredits.setOnClickListener(new View.OnClickListener() {
@@ -162,10 +187,13 @@ public class AboutActivity extends AppCompatActivity {
             });
         }
 
+        // App Help Development
         if (builder.showHelpDevelopment)
-            makeVisible(layoutHelpDevelopment);
+        {
+            //makeVisible(layoutHelpDevelopment);
+        }
 
-
+        // App Contact Us
         if (builder.showContactUs) {
             makeVisible(layoutContactUs);
 
@@ -216,14 +244,11 @@ public class AboutActivity extends AppCompatActivity {
         layoutHelpDevelopment = findViewById(R.id.layout_help_development);
     }
 
-    private void makeInvisible(View view) {
-        view.setVisibility(View.INVISIBLE);
-    }
-
     private void makeVisible(View view) {
         view.setVisibility(View.VISIBLE);
     }
 
+    // Views Visibility
     private void initVisibility() {
         int visibility = View.GONE;
         layoutPoweredBy.setVisibility(visibility);
@@ -236,6 +261,7 @@ public class AboutActivity extends AppCompatActivity {
         layoutCredits.setVisibility(visibility);
     }
 
+    // Action bar
     private void setupActionBar() {
         Window window = getWindow();
         // finally change the color
@@ -254,12 +280,10 @@ public class AboutActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 }
