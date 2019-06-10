@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                  *  All the values are set in about activity builder
                  *  If we don't need any views just ignore in build.
                  */
-                new AboutActivityBuilder.Builder(MainActivity.this)
+                new AboutActivityBuilder.Builder(getApplicationContext())
                         .setAppTheme(appTheme)
                         .setTitle(aboutUsActivityTitle)
                         .setAppLogo(appLogo)

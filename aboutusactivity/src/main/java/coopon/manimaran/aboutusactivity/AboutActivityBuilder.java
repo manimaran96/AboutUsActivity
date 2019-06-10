@@ -2,6 +2,7 @@ package coopon.manimaran.aboutusactivity;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.Intent;
 
 import androidx.annotation.NonNull;
@@ -15,8 +16,7 @@ import java.io.Serializable;
 public class AboutActivityBuilder {
     public static class Builder implements Serializable {
 
-        transient Activity acc;
-        transient Fragment frag;
+        transient Activity activity;
 
         String activityTitle = "About us Activity";
 
@@ -50,12 +50,9 @@ public class AboutActivityBuilder {
         /* Theme */
         int idTheme = 0;
 
-        Builder(@NonNull Activity act) {
-            this.acc = act;
-        }
-
-        public Builder(@NonNull Fragment frag) {
-            this.frag = frag;
+        public Builder(@NonNull Context context)
+        {
+            activity = (Activity) context;
         }
 
 
@@ -65,7 +62,7 @@ public class AboutActivityBuilder {
          * @param idTheme - App Theme
          * @return this builder
          */
-        Builder setAppTheme(int idTheme) {
+        public Builder setAppTheme(int idTheme) {
             this.idTheme = idTheme;
             return this;
         }
@@ -75,7 +72,7 @@ public class AboutActivityBuilder {
          * @param title - title app activity
          * @return
          */
-        Builder setTitle(String title) {
+        public Builder setTitle(String title) {
             this.activityTitle = title;
             return this;
         }
@@ -86,7 +83,7 @@ public class AboutActivityBuilder {
          * @param appLogo -  logo image
          * @return this builder
          */
-        Builder setAppLogo(int appLogo) {
+        public Builder setAppLogo(int appLogo) {
             this.showAppLogo = true;
             this.appLogo = appLogo;
             return this;
@@ -269,16 +266,14 @@ public class AboutActivityBuilder {
         /**
          * Open Activity
          */
-        void showAboutActivity() {
-            if (acc == null) {
+        public void showAboutActivity() {
+            if (activity == null) {
                 return;
             }
-            Intent intent = new Intent(acc, AboutActivity.class);
+            Intent intent = new Intent(activity, AboutActivity.class);
             intent.putExtra("builder", (Serializable) this);
-            if (frag != null) {
-                frag.startActivity(intent);
-            } else {
-                acc.startActivity(intent);
+            if (activity != null) {
+                activity.startActivity(intent);
             }
         }
     }
