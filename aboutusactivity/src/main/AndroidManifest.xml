@@ -1,15 +1,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="coopon.manimaran.aboutusactivity">
+    package="coopon.manimaran.aboutusactivityex">
 
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true">
         <activity
-            android:name=".AboutActivity"
+            android:name="coopon.manimaran.aboutusactivityex.coopon.manimaran.about_us_activity.AboutUsActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ThirdPartyLibraryActivity" />
-        <activity android:name=".CreditsActivity" />
+        <activity android:name="coopon.manimaran.aboutusactivityex.coopon.manimaran.about_us_activity.ThirdPartyLibraryActivity" />
+        <activity android:name="coopon.manimaran.aboutusactivityex.coopon.manimaran.about_us_activity.CreditsActivity" />
     </application>
 
 </manifest>

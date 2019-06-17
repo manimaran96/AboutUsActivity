@@ -1,1 +1,1 @@
-include ':app', ':aboutusactivity'
+include ':app', ':about_us_activity'
