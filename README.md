@@ -6,12 +6,19 @@
 ### Screen Shot
 
 <center><img src="https://gitlab.com/manimaran/aboutusactivity/raw/master/files/about_us_activity.gif" data-canonical-src="https://gitlab.com/manimaran/aboutusactivity/raw/master/files/about_us_activity.gif" width="300" height="500" /></center>
+<br>
+
+#### More Screen Shot
+<center>
+<img src="https://gitlab.com/manimaran/aboutusactivity/raw/master/files/4.png" data-canonical-src="https://gitlab.com/manimaran/aboutusactivity/raw/master/files/4.png" width="300" height="500" />
+
+</center>
 
 ### How To Use
 
 1. Add the JitPack repository to your build file. Add it in your root build.gradle at the end of repositories
 
-```
+```xml
     allprojects {
 		repositories {
 			...
@@ -52,14 +59,14 @@
     String shareIntentTitle = "Choose app to share...";
 
     // Powered By
-    int poweredByIcon = R.drawable.ic_power_by;
+    int poweredByIcon = R.drawable.ic_power_by; // If No need image set 0
     String poweredByTitle = "Powered By";
     String poweredByName = "Coopon";
     String poweredByAbout = "Coopon Sci Tech LLP";
     String poweredByLink = "http://cooponscitech.in/";
 
     // Initiated By
-    int initiatedByIcon = R.drawable.ic_initiator;
+    int initiatedByIcon = R.drawable.ic_initiator; // If No need image set 0
     String initiatedByTitle = "Initiated By";
     String initiatedByName = "Initiator";
     String initiatedByAbout = "About details of Initiator";
@@ -95,7 +102,7 @@
             .showAboutActivity();
 
 ```
-### Here
+### Note
 
 **Syntax : R.raw.credits - structure like**
 
@@ -111,7 +118,7 @@
       "name": "XYZ",
       "about": "Reason/About",
       "url": "http://xyz.com/"
-    }, .... etc.
+    }
   ]
 }
 ```
@@ -132,14 +139,10 @@
       "url": "http://developer.android.com/tools/extras/support-library.html",
       "license": "The Apache Software License, Version 2.0",
       "license_url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
-    }, ...etc.
+    }
   ]
 }
 ```
-
-### Note
-
-1. Image set 0 may Hide the image view in Powered by and Initiator by
 
 
 ### Thanks To
