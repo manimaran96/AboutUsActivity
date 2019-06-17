@@ -4,7 +4,7 @@
     <string name="about_this_app">About this APP.</string>
     <string name="version_1_5">Version : 1.5</string>
     <string name="licence">GPL v3</string>
-    <string name="share">Share</string>
+    <string name="share">Share  </string>
     <string name="rate_us">Rate Us</string>
     <string name="coopon">Coopon</string>
     <string name="about_powered_by">Cooopon is a science technology worker\'s cooperative</string>
@@ -12,4 +12,5 @@
     <string name="initiator">Initiator</string>
     <string name="about_initiator">About Initiator</string>
     <string name="link">link</string>
+    <string name="version_and_license"><![CDATA[Version : 1.0 &amp; License : GPL v3]]></string>
 </resources>

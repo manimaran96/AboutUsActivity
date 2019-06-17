@@ -95,7 +95,51 @@
             .showAboutActivity();
 
 ```
+### Here
 
+**Syntax : R.raw.credits - structure like**
+
+```json
+{
+  "credits": [
+    {
+      "name": "Manimaran",
+      "about": "Reason/About",
+      "url": "http://manimaran96.wordpress.com/"
+    },
+    {
+      "name": "XYZ",
+      "about": "Reason/About",
+      "url": "http://xyz.com/"
+    }, .... etc.
+  ]
+}
+```
+
+**Syntax : R.raw.third_party_library**
+
+```json
+{
+  "third_party_library": [
+    {
+      "name": "androidx.appcompat:appcompat:1.0.2",
+      "url": "http://developer.android.com/tools/extras/support-library.html",
+      "license": "The Apache Software License, Version 2.0",
+      "license_url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+    },
+    {
+      "name": "androidx.constraintlayout:constraintlayout:1.1.3",
+      "url": "http://developer.android.com/tools/extras/support-library.html",
+      "license": "The Apache Software License, Version 2.0",
+      "license_url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+    }, ...etc.
+  ]
+}
+```
+
+### Note
+
+1. Image set 0 may Hide the image view in Powered by and Initiator by
 
 
 ### Thanks To

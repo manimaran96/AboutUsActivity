@@ -9,6 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="5dp"
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
@@ -46,6 +47,7 @@
                     android:textSize="@dimen/text_large"
                     android:textStyle="bold" />
 
+
                 <TextView
                     android:id="@+id/txt_app_about"
                     android:layout_width="match_parent"
@@ -56,46 +58,66 @@
                     android:textSize="@dimen/text_semi_normal" />
 
                 <TextView
-                    android:id="@+id/txt_app_version"
+                    android:id="@+id/txt_app_version_and_license"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/version_and_license"
+                    android:layout_marginBottom="10dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:linksClickable="true"
+                    android:textSize="@dimen/text_small" />
+
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:gravity="center"
-                    android:text="@string/version_1_5"
-                    android:textSize="@dimen/text_small" />
-
-                <GridLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_gravity="center"
-                    android:columnCount="3"
-                    android:orientation="horizontal"
-                    android:rowCount="1">
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                    <Button
-                        android:id="@+id/btn_licence"
-                        style="@style/CustomButtonStyle"
-                        android:layout_row="0"
-                        android:paddingStart="25dp"
-                        android:paddingEnd="25dp"
-                        android:text="@string/licence" />
+                    <TextView
+                        android:id="@+id/txt_rate_us"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:drawableStart="@drawable/ic_rate_us"
+                        android:drawablePadding="8dp"
+                        android:background="@drawable/btn_bg"
+                        android:gravity="center"
+                        android:text="@string/rate_us"
+                        android:maxLines="1"
+                        android:textSize="@dimen/text_semi_normal"
+                        tools:ignore="RelativeOverlap" />
 
-                    <Button
-                        android:id="@+id/btn_share"
-                        style="@style/CustomButtonStyle"
-                        android:layout_row="0"
-                        android:paddingStart="25dp"
-                        android:paddingEnd="25dp"
-                        android:text="@string/share" />
 
-                    <Button
-                        android:id="@+id/btn_rate_us"
-                        style="@style/CustomButtonStyle"
-                        android:layout_row="0"
-                        android:paddingStart="25dp"
-                        android:paddingEnd="25dp"
-                        android:text="@string/rate_us" />
-                </GridLayout>
+                    <TextView
+                        android:id="@+id/txt_share"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="13dp"
+                        android:background="@drawable/btn_bg"
+                        android:drawableStart="@drawable/ic_share"
+                        android:drawablePadding="5dp"
+                        android:gravity="center"
+                        android:layout_marginStart="5dp"
+                        android:text="@string/share"
+                        android:maxLines="1"
+                        android:textSize="@dimen/text_semi_normal"
+                        tools:ignore="RelativeOverlap" />
+
+
+
+                </LinearLayout>
+
 
 
                 <RelativeLayout
@@ -126,6 +148,7 @@
                         android:id="@+id/img_powered_by"
                         android:layout_width="@dimen/img_width"
                         android:layout_height="@dimen/img_height"
+                        android:layout_marginEnd="5dp"
                         android:layout_below="@+id/txt_powered_by_title"
                         android:padding="5dp"
                         android:src="@drawable/ic_power_by" />
@@ -135,8 +158,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txt_powered_by_title"
-                        android:layout_marginStart="10dp"
                         android:layout_toEndOf="@+id/img_powered_by"
+                        android:layout_marginStart="5dp"
                         android:orientation="vertical">
 
 
@@ -206,6 +229,7 @@
                         android:layout_height="@dimen/img_height"
                         android:layout_below="@+id/txt_initiated_by_title"
                         android:padding="5dp"
+                        android:layout_marginEnd="5dp"
                         android:src="@drawable/ic_initiator" />
 
 
@@ -213,8 +237,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/txt_initiated_by_title"
-                        android:layout_marginStart="10dp"
                         android:layout_toEndOf="@+id/img_initiated_by"
+                        android:layout_marginStart="5dp"
                         android:orientation="vertical">
 
 

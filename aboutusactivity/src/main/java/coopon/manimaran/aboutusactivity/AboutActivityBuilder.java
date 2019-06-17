@@ -1,7 +1,6 @@
 package coopon.manimaran.aboutusactivity;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 
@@ -50,8 +49,7 @@ public class AboutActivityBuilder {
         /* Theme */
         int idTheme = 0;
 
-        public Builder(@NonNull Context thisContext)
-        {
+        public Builder(@NonNull Context thisContext) {
             activity = (Activity) thisContext;
         }
 
@@ -69,6 +67,7 @@ public class AboutActivityBuilder {
 
         /**
          * Set Title
+         *
          * @param title - title app activity
          * @return
          */
@@ -90,7 +89,7 @@ public class AboutActivityBuilder {
         }
 
         /**
-         *  Set App Name
+         * Set App Name
          *
          * @param appName - app name
          * @return
@@ -103,7 +102,7 @@ public class AboutActivityBuilder {
 
 
         /**
-         *  Set App About Info
+         * Set App About Info
          *
          * @param appAbout - about application
          * @return
@@ -115,7 +114,7 @@ public class AboutActivityBuilder {
         }
 
         /**
-         *  Set Application Version
+         * Set Application Version
          *
          * @param appVersion - app version
          * @return
@@ -127,7 +126,7 @@ public class AboutActivityBuilder {
         }
 
         /**
-         *  Set App License Details
+         * Set App License Details
          *
          * @param license - license name
          * @return
@@ -141,9 +140,9 @@ public class AboutActivityBuilder {
 
 
         /**
-         *  Set Share details
+         * Set Share details
          *
-         * @param shareMsgText - Message content
+         * @param shareMsgText     - Message content
          * @param shareIntentTitle - Intent Chosen title
          * @return
          */
@@ -155,7 +154,7 @@ public class AboutActivityBuilder {
         }
 
         /**
-         *  Rate the application in play store
+         * Rate the application in play store
          *
          * @param appPlayStoreLink - app play store link
          * @return
@@ -168,13 +167,13 @@ public class AboutActivityBuilder {
 
 
         /**
-         *  Application Developer details. I.e Application Powered by
+         * Application Developer details. I.e Application Powered by
          *
-         * @param poweredByIcon - Icon
+         * @param poweredByIcon  - Icon
          * @param poweredByTitle - Powered by or Developed By
-         * @param poweredByName - Name
+         * @param poweredByName  - Name
          * @param poweredByAbout - ABout
-         * @param poweredByLink - Web site link
+         * @param poweredByLink  - Web site link
          * @return
          */
         public Builder setPoweredBy(int poweredByIcon, String poweredByTitle, String poweredByName, String poweredByAbout, String poweredByLink) {
@@ -188,13 +187,13 @@ public class AboutActivityBuilder {
         }
 
         /**
-         *  Application Initiator name. Like Application Client
+         * Application Initiator name. Like Application Client
          *
-         * @param initiatedByIcon - icon
+         * @param initiatedByIcon  - icon
          * @param initiatedByTitle - title
-         * @param initiatedByName - name
+         * @param initiatedByName  - name
          * @param initiatedByAbout - about
-         * @param initiatedByLink - link
+         * @param initiatedByLink  - link
          * @return
          */
         public Builder setInitiatedBy(int initiatedByIcon, String initiatedByTitle, String initiatedByName, String initiatedByAbout, String initiatedByLink) {
@@ -208,7 +207,8 @@ public class AboutActivityBuilder {
         }
 
         /**
-         *  See Source code
+         * See Source code
+         *
          * @param linkSourceCode - repo link
          * @return
          */
@@ -219,7 +219,7 @@ public class AboutActivityBuilder {
         }
 
         /**
-         *  Third party library details used in app.
+         * Third party library details used in app.
          *
          * @param jsonResOfThirdPartyLib - json file for third party library
          * @return
@@ -231,7 +231,8 @@ public class AboutActivityBuilder {
         }
 
         /**
-         *  Credits details - Credits Info of art, images, icons
+         * Credits details - Credits Info of art, images, icons
+         *
          * @param jsonResOfCredits - Json file for credits
          * @return
          */
@@ -242,7 +243,8 @@ public class AboutActivityBuilder {
         }
 
         /**
-         *  Help to App Development
+         * Help to App Development
+         *
          * @param linkSourceCode
          * @return
          */
@@ -252,7 +254,7 @@ public class AboutActivityBuilder {
         }
 
         /**
-         *  Contact Details
+         * Contact Details
          *
          * @param contactMail - mail id
          * @return

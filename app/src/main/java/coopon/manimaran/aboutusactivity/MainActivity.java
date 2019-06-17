@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity {
                 int appLogo = R.drawable.ic_app_logo;
                 String appName = getString(R.string.app_name);
                 String appAbout = "About App Info. About Activity for simple and easy way to show about us.";
-                String appVersion = "Version : " + BuildConfig.VERSION_NAME;
-                String appPlayStoreLink =  "https://play.google.com/store/apps/details?id=com.jskaleel.fte";
+                String appVersion = BuildConfig.VERSION_NAME;
+                String appPlayStoreLink = "https://play.google.com/store/apps/details?id=com.jskaleel.fte";
 
 
                 // License details
@@ -61,11 +61,11 @@ public class MainActivity extends AppCompatActivity {
                 String contactMail = "manimaran@cooponscitech.in";
 
 
-                /**
+                /*
                  *  All the values are set in about activity builder
                  *  If we don't need any views just ignore in build.
                  */
-                new AboutActivityBuilder.Builder(getApplicationContext())
+                new AboutActivityBuilder.Builder(MainActivity.this)
                         .setAppTheme(appTheme)
                         .setTitle(aboutUsActivityTitle)
                         .setAppLogo(appLogo)

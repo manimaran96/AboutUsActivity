@@ -6,25 +6,5 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
-        <item name="android:textViewStyle">@style/CustomTextViewStyle</item>
-        <item name="buttonStyle">@style/CustomButtonStyle</item>
     </style>
-
-    <!--Custom Button style -->
-    <style name="CustomButtonStyle" parent="android:Widget.Button">
-        <item name="android:fontFamily">@font/montserrat</item>
-        <item name="android:background">@drawable/btn_bg</item>
-        <item name="android:padding">10dp</item>
-        <item name="android:layout_margin">3dp</item>
-        <item name="android:textAlignment">center</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textAllCaps">false</item>
-    </style>
-
-    <!--Custom Text view style-->
-    <style name="CustomTextViewStyle" parent="android:Widget.TextView">
-        <item name="android:fontFamily">@font/montserrat</item>
-    </style>
-
 </resources>

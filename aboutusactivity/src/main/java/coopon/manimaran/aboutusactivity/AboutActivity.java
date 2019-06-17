@@ -1,16 +1,19 @@
 package coopon.manimaran.aboutusactivity;
 
+import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,16 +23,16 @@ import androidx.appcompat.app.AppCompatActivity;
 public class AboutActivity extends AppCompatActivity {
 
     private ImageView imgAppLogo, imgPoweredByLogo, imgInitiatedByLogo;
-    private Button btnShare, btnLicense, btnRateUs;
     private View layoutPoweredBy, layoutInitiatedBy, layoutSeeSourceCode, layoutThirdPartyLibrary;
     private View layoutCredits, layoutHelpDevelopment, layoutContactUs;
 
-    private TextView txtAppName, txtAppAbut, txtAppVersion;
+    private TextView txtAppName, txtAppAbut, txtAppVersionAndLicense, btnShare, btnRateUs;
     private TextView txtPoweredByTitle, txtPoweredByName, txtPoweredByAbout, txtPoweredByLink;
     private TextView txtInitiatedByTitle, txtInitiatedByName, txtInitiatedByAbout, txtInitiatedByLink;
 
     private AboutActivityBuilder.Builder builder;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +56,7 @@ public class AboutActivity extends AppCompatActivity {
         setupActionBar();
 
         // Set Title
-        if(builder.activityTitle != null)
+        if (builder.activityTitle != null)
             setTitle(builder.activityTitle);
 
         // Views Init
@@ -81,22 +84,22 @@ public class AboutActivity extends AppCompatActivity {
         }
 
         // App Version
+        StringBuilder appVersionLicense = new StringBuilder();
+
         if (builder.showAppVersion) {
-            txtAppVersion.setVisibility(builder.appVersion != null ? View.VISIBLE : View.GONE);
-            txtAppVersion.setText(builder.appVersion != null ? builder.appVersion : "");
+            txtAppVersionAndLicense.setVisibility(builder.appVersion != null ? View.VISIBLE : View.GONE);
+            appVersionLicense.append(builder.appVersion != null ? "Version : " + builder.appVersion : "");
         }
 
         // App License - Button
         if (builder.showLicenseBtn) {
-            if (builder.hintLicense != null)
-                btnLicense.setText(builder.hintLicense);
+            if (builder.hintLicense != null) {
+                appVersionLicense.append(TextUtils.isEmpty(txtAppVersionAndLicense.getText()) ? "" : " & ");
+                appVersionLicense.append("License : <a href=").append(builder.licenseUrl).append(">").append(builder.hintLicense).append("</a>");
 
-            btnLicense.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(builder.licenseUrl)));
-                }
-            });
+                txtAppVersionAndLicense.setMovementMethod(LinkMovementMethod.getInstance());
+                txtAppVersionAndLicense.setText(Html.fromHtml(appVersionLicense.toString()));
+            }
         }
 
         // App Share - Button
@@ -131,7 +134,10 @@ public class AboutActivity extends AppCompatActivity {
         // App Power By Info
         if (builder.showPoweredBy) {
             layoutPoweredBy.setVisibility(View.VISIBLE);
-            imgPoweredByLogo.setImageResource(builder.poweredByIcon);
+            if (builder.poweredByIcon != 0)
+                imgPoweredByLogo.setImageResource(builder.poweredByIcon);
+            else
+                imgPoweredByLogo.setVisibility(View.GONE);
             txtPoweredByTitle.setText(builder.poweredByTitle != null ? builder.poweredByTitle : "");
             txtPoweredByName.setText(builder.poweredByName != null ? builder.poweredByName : "");
             txtPoweredByAbout.setText(builder.poweredByAbout != null ? builder.poweredByAbout : "");
@@ -141,7 +147,10 @@ public class AboutActivity extends AppCompatActivity {
         // App Initiator By
         if (builder.showInitiatedBy) {
             layoutInitiatedBy.setVisibility(View.VISIBLE);
-            imgInitiatedByLogo.setImageResource(builder.initiatedByIcon);
+            if (builder.initiatedByIcon != 0)
+                imgInitiatedByLogo.setImageResource(builder.initiatedByIcon);
+            else
+                imgInitiatedByLogo.setVisibility(View.GONE);
             txtInitiatedByTitle.setText(builder.initiatedByTitle != null ? builder.initiatedByTitle : "");
             txtInitiatedByName.setText(builder.initiatedByName != null ? builder.initiatedByName : "");
             txtInitiatedByAbout.setText(builder.initiatedByAbout != null ? builder.initiatedByAbout : "");
@@ -188,8 +197,7 @@ public class AboutActivity extends AppCompatActivity {
         }
 
         // App Help Development
-        if (builder.showHelpDevelopment)
-        {
+        if (builder.showHelpDevelopment) {
             //makeVisible(layoutHelpDevelopment);
         }
 
@@ -200,7 +208,7 @@ public class AboutActivity extends AppCompatActivity {
             layoutContactUs.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(Intent.ACTION_SEND);
+                    Intent i = new Intent(Intent.ACTION_VIEW);
                     i.setType("message/rfc822");
                     i.putExtra(Intent.EXTRA_EMAIL, new String[]{builder.contactMail});
                     try {
@@ -217,11 +225,10 @@ public class AboutActivity extends AppCompatActivity {
         imgAppLogo = findViewById(R.id.img_app_logo);
         txtAppName = findViewById(R.id.txt_app_name);
         txtAppAbut = findViewById(R.id.txt_app_about);
-        txtAppVersion = findViewById(R.id.txt_app_version);
+        txtAppVersionAndLicense = findViewById(R.id.txt_app_version_and_license);
 
-        btnLicense = findViewById(R.id.btn_licence);
-        btnShare = findViewById(R.id.btn_share);
-        btnRateUs = findViewById(R.id.btn_rate_us);
+        btnShare = findViewById(R.id.txt_share);
+        btnRateUs = findViewById(R.id.txt_rate_us);
 
         layoutPoweredBy = findViewById(R.id.layout_powered_by);
         imgPoweredByLogo = findViewById(R.id.img_powered_by);
