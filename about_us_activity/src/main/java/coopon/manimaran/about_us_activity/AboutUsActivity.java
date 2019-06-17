@@ -1,19 +1,16 @@
 package coopon.manimaran.about_us_activity;
 
+
 import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -51,9 +48,6 @@ public class AboutUsActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_about_us);
-
-        // Action Bar
-        setupActionBar();
 
         // Set Title
         if (builder.activityTitle != null)
@@ -208,7 +202,7 @@ public class AboutUsActivity extends AppCompatActivity {
             layoutContactUs.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    Intent i = new Intent(Intent.ACTION_SEND);
                     i.setType("message/rfc822");
                     i.putExtra(Intent.EXTRA_EMAIL, new String[]{builder.contactMail});
                     try {
@@ -266,23 +260,6 @@ public class AboutUsActivity extends AppCompatActivity {
         layoutHelpDevelopment.setVisibility(visibility);
         layoutContactUs.setVisibility(visibility);
         layoutCredits.setVisibility(visibility);
-    }
-
-    // Action bar
-    private void setupActionBar() {
-        Window window = getWindow();
-        // finally change the color
-        if (Build.VERSION.SDK_INT >= 21) {
-            // clear FLAG_TRANSLUCENT_STATUS flag:
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            // add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        }
-        ActionBar actionBar = getActionBar();
-        if (actionBar != null) {
-            // Show the Up button in the action bar.
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
     }
 
     @Override

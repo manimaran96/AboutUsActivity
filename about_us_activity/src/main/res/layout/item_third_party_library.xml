@@ -2,19 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp">
+    android:padding="12dp">
 
     <TextView
         android:id="@+id/txt_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="1"
+        android:ellipsize="middle"
         android:layout_toStartOf="@+id/btn_option"
         android:padding="2dp"
         android:text="@string/link"
         android:textSize="@dimen/text_semi_normal"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:singleLine="true"
+        android:layout_toLeftOf="@+id/btn_option" />
 
     <TextView
         android:id="@+id/txt_license"
