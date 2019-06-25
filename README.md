@@ -3,6 +3,9 @@
 *  About Us Activity for Android Application About screen.
 *  Simple and Easy to Use
 
+
+**Demo App** - [Click here](https://gitlab.com/manimaran/aboutusactivity/raw/master/files/about_us_activity_demo.apk)
+
 ### Screen Shot
 
 <center><img src="https://gitlab.com/manimaran/aboutusactivity/raw/master/files/about_us_activity.gif" data-canonical-src="https://gitlab.com/manimaran/aboutusactivity/raw/master/files/about_us_activity.gif" width="300" height="500" /></center>
